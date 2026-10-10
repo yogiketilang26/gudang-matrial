@@ -1,8 +1,10 @@
 <?php
 declare(strict_types=1);
+define('DB_CHARSET', 'utf8mb4');
+define('DB_PORT', 3306);
+define('APP_ENV', 'development');   // or 'production'
+define('APP_DEBUG', true);
+define('APP_URL', 'http://localhost/gudang-material');
+define('APP_TIMEZONE', 'Asia/Jakarta');
 
-define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'stok_gudang');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('APP_NAME', 'Stok Gudang');
+date_default_timezone_set(APP_TIMEZONE);
