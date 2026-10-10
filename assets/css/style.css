@@ -1,0 +1,117 @@
+:root {
+    --bg: #f3efe6;
+    --ink: #1c2a27;
+    --muted: #5d6b67;
+    --line: #d9d0c3;
+    --card: #fffdf8;
+    --teal: #1f4e46;
+    --teal-2: #2d6a60;
+    --out: #b5471f;
+    --ok: #1d6b4a;
+    --warn: #8a5a12;
+    --shadow: 0 12px 30px rgba(31, 40, 36, 0.08);
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); }
+a { color: var(--teal); text-decoration: none; }
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 28px;
+    background: var(--teal);
+    color: #f7f3ea;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.brand { display: flex; gap: 12px; align-items: center; }
+.logo {
+    width: 42px; height: 42px; border-radius: 12px;
+    display: grid; place-items: center;
+    background: #c9a227; color: #1c2a27; font-weight: 800;
+}
+.brand small { display: block; opacity: .75; font-size: 12px; }
+nav { display: flex; gap: 8px; flex-wrap: wrap; }
+nav a {
+    color: #f7f3ea; padding: 8px 12px; border-radius: 999px;
+    border: 1px solid transparent;
+}
+nav a.active, nav a:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.2); }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 24px 20px 64px; }
+h1 { margin: 0 0 8px; font-size: 28px; }
+.lead { margin: 0 0 22px; color: var(--muted); }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 22px; }
+.stat, .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+}
+.stat { padding: 16px 18px; }
+.stat span { color: var(--muted); font-size: 13px; }
+.stat strong { display: block; font-size: 28px; margin-top: 6px; }
+.card { padding: 20px; margin-bottom: 20px; }
+
+.toolbar, .form-grid, .filters {
+    display: grid;
+    gap: 12px;
+}
+.toolbar { grid-template-columns: 1fr auto; align-items: center; margin-bottom: 14px; }
+.filters { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-bottom: 16px; }
+.form-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.span-2 { grid-column: span 2; }
+@media (max-width: 700px) { .span-2 { grid-column: span 1; } }
+
+label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+input, select, textarea, button {
+    font: inherit; color: inherit;
+}
+input, select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fff;
+}
+textarea { min-height: 86px; resize: vertical; }
+.actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+.btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 10px 16px; border-radius: 999px; border: 0; cursor: pointer;
+    background: var(--teal); color: #fff; font-weight: 650;
+}
+.btn.secondary { background: #ece6d9; color: var(--ink); }
+.btn.out { background: var(--out); }
+.btn.ghost { background: transparent; border: 1px solid var(--line); color: var(--ink); }
+
+.table-wrap { overflow: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 10px 8px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+th { font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+.badge { display: inline-block; padding: 3px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+.badge.in { background: #dcefe4; color: var(--ok); }
+.badge.out { background: #f8e2d8; color: var(--out); }
+.low { color: var(--out); font-weight: 700; }
+
+.alert {
+    padding: 12px 14px; border-radius: 12px; margin-bottom: 16px; font-weight: 600;
+}
+.alert.ok { background: #dcefe4; color: var(--ok); }
+.alert.error { background: #f8e2d8; color: var(--out); }
+
+.empty { padding: 28px; text-align: center; color: var(--muted); }
+
+.print-area { background: #fff; padding: 24px; }
+@media print {
+    .topbar, .no-print { display: none !important; }
+    body { background: #fff; }
+    .wrap { max-width: none; padding: 0; }
+    .card { box-shadow: none; border: 0; }
+}
